@@ -16,7 +16,11 @@ export class DataService {
   setQrData(qrData: any) {
     this._qrData.next(qrData);
   }
-  setQrConfig(qrConfig: any[]) {
+  setQrConfig(qrConfig: string[]) {
     this._config.next(qrConfig);
+  }
+  sendData(data, config) {
+    this.setQrData(data);
+    this.setQrConfig(config);
   }
 }

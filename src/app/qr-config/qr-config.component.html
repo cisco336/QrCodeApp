@@ -64,8 +64,8 @@
               <mat-icon>straighten</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
-      
-          <mat-slide-toggle #svg (change)="codeSizeCtrl.disabled = !codeSizeCtrl.disabled; usesvg = !usesvg; change()">SVG</mat-slide-toggle>
+      <!-- codeSizeCtrl.disabled = !codeSizeCtrl.disabled;  -->
+          <mat-slide-toggle #svg (change)="usesvg = !usesvg; change()">SVG</mat-slide-toggle>
           <mat-slider #codeSizeCtrl name="size"
             class="example-margin"
             disabled="false"
@@ -78,7 +78,7 @@
             vertical="false"
             [value]="codeSize"
             (change)="codeSize = codeSizeCtrl.value;change()">
-        </mat-slider>
+          </mat-slider>
       
           <mat-action-row>
             <button mat-button color="warn" (click)="prevStep()">Previous</button>

@@ -30,7 +30,6 @@ export class QrConfigComponent implements OnInit {
     this._dataService.currentConfig.subscribe(configStream => {
       this.qrConfig = configStream;
     });
-    console.log(this.qrConfig);
   }
 
   change() {
@@ -39,7 +38,6 @@ export class QrConfigComponent implements OnInit {
     this.qrConfig[2] = this.codeColor;
     this.qrConfig[3] = this.backColor;
     this.qrConfig[4] = this.usesvg;
-    console.log(this.qrConfig);
     this._dataService.setQrConfig(this.qrConfig);
   }
 

@@ -7,8 +7,8 @@
   <mat-card>
     <div *ngIf="qrData != '';then data2 else nodata2"></div>
     <ng-template #data2 >
-        <div @grow class="qr-wrapper" [ngStyle]="{'background': qrConfig[3], 'width': qrConfig[1] + 'px'} ">
-            <qrcode @grow [qrdata]="qrData" [size]="qrConfig[0]" [level]="qrConfig[1]" [colordark]="qrConfig[2]" [colorlight]="qrConfig[3]" [usesvg]="qrConfig[4]"></qrcode>
+        <div @grow class="qr-wrapper" [ngStyle]="qrDivWrapper()">
+            <qrcode @grow [qrdata]="qrData" [size]="+qrConfig[0]" [level]="qrConfig[1]" [colordark]="qrConfig[2]" [colorlight]="qrConfig[3]" [usesvg]="qrConfig[4]"></qrcode>
         </div>
     </ng-template>
     <ng-template #nodata2 class="nodata"> 

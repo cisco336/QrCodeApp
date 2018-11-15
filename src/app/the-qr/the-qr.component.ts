@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { DataService } from '../data.service';
 import { animamtions } from '../animations/animations';
 
@@ -9,12 +9,21 @@ import { animamtions } from '../animations/animations';
   animations: [animamtions]
 })
 export class TheQrComponent implements OnInit {
-  qrData: any;
-  qrConfig: any[];
+  qrData: any = '';
+  qrConfig: any[] = [];
+  qrDivWrapper = function() {
+    return {
+      'background': this.qrConfig[3],
+      'max-width.px': this.qrConfig[0]
+    };
+  };
   constructor(private _dataService: DataService) {}
 
   ngOnInit() {
-    /**
+   this.subscriptions();
+  }
+  subscriptions() {
+     /**
      * Subscription to DataService to recieve data for the Qr
      * Code
      */
@@ -29,7 +38,6 @@ export class TheQrComponent implements OnInit {
     this._dataService.currentConfig.subscribe(configStream => {
       this.qrConfig = [...configStream];
     });
-    console.log(this.qrConfig);
   }
   /**
    * Clear the data for generating the Qr Code
@@ -37,6 +45,5 @@ export class TheQrComponent implements OnInit {
    */
   clearData() {
     this.qrData = '';
-    this.qrConfig  = [];
   }
 }
