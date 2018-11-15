@@ -1,0 +1,7 @@
+<div class="w-100">
+  <mat-form-field color="accent" hintLabel="Max 280 characters (Yes like a tweet)">
+    <textarea matInput #text name="text" placeholder="Textarea" #input maxlength="280"></textarea>
+    <mat-hint align="end">{{input.value?.length || 0}}/280</mat-hint>
+  </mat-form-field>
+</div>
+<button mat-raised-button color="primary" (click)="sendData(text.value)">Create Qr</button>

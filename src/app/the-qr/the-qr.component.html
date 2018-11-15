@@ -1,0 +1,24 @@
+<div class="the-qr">
+  <div *ngIf="qrData != '';then data1"></div>
+  <ng-template #data1>
+    <p>The data is: {{qrData}}</p>
+    <p>The config is: {{qrConfig}}</p>
+  </ng-template>
+  <mat-card>
+    <div *ngIf="qrData != '';then data2 else nodata2"></div>
+    <ng-template #data2 >
+        <div @grow class="qr-wrapper" [ngStyle]="{'background': qrConfig[3], 'width': qrConfig[1] + 'px'} ">
+            <qrcode @grow [qrdata]="qrData" [size]="qrConfig[0]" [level]="qrConfig[1]" [colordark]="qrConfig[2]" [colorlight]="qrConfig[3]" [usesvg]="qrConfig[4]"></qrcode>
+        </div>
+    </ng-template>
+    <ng-template #nodata2 class="nodata"> 
+      No data...
+    </ng-template>
+  </mat-card>
+  <div class="qrbuttons">
+    <button mat-stroked-button color="accent">A</button>
+    <button mat-stroked-button color="accent">B</button>
+    <button mat-stroked-button color="accent">C</button>
+    <button mat-raised-button (click)="clearData()" color="primary">Clear Qr</button>
+  </div>
+</div>

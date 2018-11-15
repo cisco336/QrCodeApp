@@ -1,0 +1,16 @@
+<form>
+  <div class="w-100">
+    <mat-form-field color="accent">
+        <mat-hint>REMEMBER the + symbol</mat-hint>
+        <input matInput #countryCode name="countryCode" placeholder="Country code" value="">
+    </mat-form-field>
+    <mat-form-field color="warn">
+        <input matInput #phone name="phone" placeholder="Phone" value="">
+    </mat-form-field>
+    <mat-form-field color="accent" hintLabel="Max 280 characters (Yes like a tweet)">
+      <textarea matInput #body name="body" placeholder="Message" #input maxlength="280"></textarea>
+      <mat-hint align="end">{{input.value?.length || 0}}/280</mat-hint>
+    </mat-form-field>
+  </div>
+</form>
+<button mat-raised-button color="primary" (click)="sendData(countryCode.value, phone.value, body.value)">Create Qr</button>

@@ -1,0 +1,12 @@
+<form class="example-form">
+  <div class="w-auto">
+    <!-- <mat-select #opt name="opt" placeholder="Http/Https">
+      <mat-option value="http://">Http</mat-option>
+      <mat-option value="https://">Https</mat-option>
+    </mat-select> -->
+    <mat-form-field color="accent">
+      <input matInput #urlQr name="urlQr" placeholder="Url" value="">
+    </mat-form-field>
+  </div>
+</form>
+<button mat-raised-button color="primary" (click)="sendData(urlQr.value)">Create Qr</button>      

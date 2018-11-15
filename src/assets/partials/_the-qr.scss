@@ -1,0 +1,18 @@
+.the-qr {
+    padding: 16px;
+    button {
+        margin: 10px 0px;
+    }
+    .qrbuttons {
+        button {
+            margin: .5rem;
+            &:first-child { 
+                margin-left: 0px; 
+            }
+            &:last-child {
+                float: right;
+                margin-right: 0px;
+            }
+        }
+    }
+}

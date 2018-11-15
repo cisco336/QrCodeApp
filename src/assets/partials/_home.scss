@@ -1,0 +1,40 @@
+.home-wrapper {
+    p, h3, h4 {
+        padding: 0% 1rem;
+    }
+    .mat-form-field-wrapper, h3 {
+        font-weight: 100;
+    }
+}
+
+.mat-card {
+    transition: all 2s ease-out;
+    img {
+        margin: auto;
+    }
+}
+.mat-tab-body-content {
+    padding: 16px;
+}
+.mat-form-field-wrapper {
+    margin: 5px;
+}
+.qr-config-wrapper {
+    .mat-slide-toggle {
+        float: right;
+    }
+    .mat-slider {
+        width: 100%;
+    }
+    .mat-accordion {
+        .mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+            flex-basis: 0;
+        }
+        .mat-expansion-panel-header-description {
+            font-weight: 100;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+

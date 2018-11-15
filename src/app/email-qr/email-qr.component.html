@@ -1,0 +1,15 @@
+<form>
+  <div class="w-100">
+    <mat-form-field color="accent">
+        <input matInput #to name="to" placeholder="To:" value="">
+    </mat-form-field>
+    <mat-form-field color="warn">
+        <input matInput #subject name="subject" placeholder="Subject" value="">
+    </mat-form-field>
+    <mat-form-field color="accent" hintLabel="Max 280 characters (Yes like a tweet)">
+        <textarea matInput #body name="body" placeholder="Email content" #input maxlength="280"></textarea>
+        <mat-hint align="end">{{input.value?.length || 0}}/280</mat-hint>
+      </mat-form-field>
+  </div>
+</form>
+<button mat-raised-button color="primary" (click)="sendData(to.value, subject.value,  body.value)">Create Qr</button>

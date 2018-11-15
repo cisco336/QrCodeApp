@@ -1,0 +1,21 @@
+<mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="center">
+  <mat-tab label="Url"> 
+    <ng-template matTabContent>
+      <app-url-qr></app-url-qr>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="VCard"> 
+    <ng-template matTabContent>
+      <app-vcard-qr></app-vcard-qr>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Text">
+    <app-text-qr></app-text-qr>
+  </mat-tab>
+  <mat-tab label="Email">
+    <app-email-qr></app-email-qr>
+  </mat-tab>
+  <mat-tab label="Sms">
+    <app-sms-qr></app-sms-qr>
+  </mat-tab>
+</mat-tab-group>

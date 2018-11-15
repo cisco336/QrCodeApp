@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+// Angular Material themes
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+// Theming
+// @import '~@angular/material/theming';
+// @include mat-core();
+// $candy-app-primary: mat-palette($mat-pink);
+// $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+// $candy-app-warn:    mat-palette($mat-red);
+// $candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+// @include angular-material-theme($candy-app-theme);
+
+// Partials
+@import "./assets/partials/nav";
+@import "./assets/partials/footer";
+@import "./assets/partials/home";
+@import "./assets/partials/the-qr";
+
+html, body { 
+    min-height: 100vh !important; 
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    
+    // Temporal
+    background: #303030;
+    color: white;
+    // position: relative;
+}
+
+.thin, .small {
+    font-weight: 100;
+}
+.small {
+    font-size: 70%;
+}
+.w-100 > * {
+    width: 100%;
+}
+.w-flex > * {
+    flex: auto;
+}
+.w-auto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    .mat-select {
+        max-width: 100px; 
+    }
+    .mat-form-field {
+        width: 100%;
+    }
+    
+}
+.app-wrapper {
+ box-sizing: border-box;   
+}
+.qr-wrapper {
+    margin: 0 auto;
+    padding: 2rem;
+}

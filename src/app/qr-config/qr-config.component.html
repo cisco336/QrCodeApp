@@ -1,0 +1,113 @@
+<div class="qr-config-wrapper">
+    <mat-accordion class="qr-config-headers">
+        <mat-expansion-panel [expanded]="" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Colors:
+            </mat-panel-title>
+            <mat-panel-description>
+              Select the colors for code and background
+              <mat-icon>format_color_fill</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field color="warn">
+            <input #codeColorCtrl matInput placeholder="Qr Code Color"
+            [style.color]="codeColor"
+            [cpPosition]="'top'"
+            [cpPositionOffset]="'50%'"
+            [cpPositionRelativeToArrow]="true"
+            [(colorPicker)]="codeColor"
+            (keyup.enter)="change(codeColorCtrl.value)"
+            [value]="codeColor"/>
+            <button mat-icon-button color="accent"  matSuffix
+            (click)="change(codeColorCtrl.value)">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button mat-icon-button color="warn"  matSuffix
+            (click)="defaultColor(true)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+      
+          <mat-form-field color="warn">
+              <input #backColorCtrl matInput placeholder="Background Color"
+              [style.color]="backColor"
+              [cpPosition]="'top'"
+              [cpPositionOffset]="'50%'"
+              [cpPositionRelativeToArrow]="true"
+              [(colorPicker)]="backColor"
+              (keyup.enter)="change(backColorCtrl.value)"
+              [value]="backColor"/>
+              <button mat-icon-button color="accent"  matSuffix
+              (click)="change(backColorCtrl.value)">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button color="warn"  matSuffix
+              (click)="defaultColor(false)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+      
+          <mat-action-row>
+            <button mat-button color="accent" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Size / SVG
+            </mat-panel-title>
+            <mat-panel-description>
+              How big do you want your Qr?
+              <mat-icon>straighten</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-slide-toggle #svg (change)="codeSizeCtrl.disabled = !codeSizeCtrl.disabled; usesvg = !usesvg; change()">SVG</mat-slide-toggle>
+          <mat-slider #codeSizeCtrl name="size"
+            class="example-margin"
+            disabled="false"
+            invert="false"
+            max="1024"
+            min="128"
+            step="1"
+            thumbLabel="true"
+            tickInterval="1"
+            vertical="false"
+            [value]="codeSize"
+            (change)="codeSize = codeSizeCtrl.value;change()">
+        </mat-slider>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="accent" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Level
+            </mat-panel-title>
+            <mat-panel-description>
+              Choose the level of correction.
+              <mat-icon>build</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field color="accent">
+              <mat-select #codeLevelCtrl (selectionChange)="codeLevel = codeLevelCtrl.value; change()" placeholder="Choose level">
+                <mat-option *ngFor="let level of levels" [value]="level.viewValue">
+                  {{level.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="accent" (click)="nextStep()">End</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      
+    </mat-accordion>
+</div>
