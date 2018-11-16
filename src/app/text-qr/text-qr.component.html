@@ -1,6 +1,9 @@
 <div class="w-100">
   <mat-form-field color="accent" hintLabel="Max 280 characters (Yes like a tweet)">
-    <textarea matInput #text name="text" placeholder="Textarea" #input maxlength="280"></textarea>
+    <textarea matInput #text name="text" placeholder="Textarea" #input maxlength="280" (input)="sendData(text.value)"></textarea>
+    <button mat-icon-button color="warn"  matSuffix (click)="text.value = ''">
+      <mat-icon>close</mat-icon>
+    </button>
     <mat-hint align="end">{{input.value?.length || 0}}/280</mat-hint>
   </mat-form-field>
 </div>

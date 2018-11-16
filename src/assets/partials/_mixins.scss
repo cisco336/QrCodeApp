@@ -1,5 +1,15 @@
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+@mixin smartphone-port {
+    @media (min-width: #{$iphone678-width}) and (max-width: 512px) {
+        @content;
+    }
+}
+@mixin medium-screens {
+    @media (min-width: 513px) and (max-width: #{$desktop-width - 1px} ) {
         @content;
     }
 }

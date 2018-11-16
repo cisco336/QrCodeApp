@@ -22,5 +22,6 @@ export class DataService {
   sendData(data, config) {
     this.setQrData(data);
     this.setQrConfig(config);
+    console.log(data + '  ' + config);
   }
 }

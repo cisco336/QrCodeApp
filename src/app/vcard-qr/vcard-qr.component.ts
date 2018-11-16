@@ -39,6 +39,7 @@ EMAIL:${email}
 URL:${uri}
 END:VCARD
 `;
+    console.log(this.qrData);
     this._dataService.setQrData(this.qrData);
   }
 }

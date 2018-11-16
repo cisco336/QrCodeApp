@@ -1,18 +1,41 @@
 .the-qr {
-    padding: 16px;
+    @include desktop {
+        padding: 0 16px 16px 16px;
+    }
+    padding: 0px;
     button {
         margin: 10px 0px;
     }
+    #qrTag {
+        position: relative;
+        margin: 0 auto;
+        &.tag-1 {
+            padding: 2rem;
+            border-radius: 6px;
+            background: black;
+        }
+        &.tag-2 {
+            padding: 2rem;
+            border-radius: 6px;
+            background: greenyellow;
+        }
+    }
     .qrbuttons {
-        button {
-            margin: .5rem;
-            &:first-child { 
-                margin-left: 0px; 
-            }
-            &:last-child {
-                float: right;
-                margin-right: 0px;
-            }
+        padding-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        @include smartphone-port {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        @include medium-screens {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+        }
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
         }
     }
 }

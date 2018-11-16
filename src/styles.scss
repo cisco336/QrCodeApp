@@ -14,6 +14,8 @@
 // @include angular-material-theme($candy-app-theme);
 
 // Partials
+@import "./assets/partials/variables";
+@import "./assets/partials/mixins";
 @import "./assets/partials/nav";
 @import "./assets/partials/footer";
 @import "./assets/partials/home";
