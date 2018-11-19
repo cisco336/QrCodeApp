@@ -6,7 +6,7 @@
               Colors:
             </mat-panel-title>
             <mat-panel-description>
-              Select the colors for code and background
+              <span>Select the colors for code and background</span>
               <mat-icon>format_color_fill</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -60,7 +60,7 @@
               Size / SVG
             </mat-panel-title>
             <mat-panel-description>
-              How big do you want your Qr?
+              <span>How big do you want your Qr?</span>
               <mat-icon>straighten</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -86,13 +86,13 @@
           </mat-action-row>
         </mat-expansion-panel>
       
-        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle >
           <mat-expansion-panel-header>
             <mat-panel-title>
               Level
             </mat-panel-title>
             <mat-panel-description>
-              Choose the level of correction.
+              <span>Choose the level of correction.</span>
               <mat-icon>build</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>

@@ -32,6 +32,9 @@
             margin: auto;
         }
     }
+    .mat-tab-labels {
+        justify-content: center;
+    }
     .mat-tab-body-content {
         padding: 16px;
     }
@@ -54,8 +57,21 @@
             }
             .mat-expansion-panel-header-description {
                 font-weight: 100;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: center;
+                position: absolute;
+                right: 0px;
+                & span {
+                    display: none;
+                    @include small-screens-only {
+                        justify-content: space-between;
+                        display: inline-block;
+                    }
+                }
+                @include small-screens-only {
+                    position: relative;
+                    justify-content: space-between;
+                }
             }
         }
     }
