@@ -97,12 +97,12 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-form-field color="accent">
-              <mat-select #codeLevelCtrl (selectionChange)="codeLevel = codeLevelCtrl.value; change()" placeholder="Choose level">
-                <mat-option *ngFor="let level of levels" [value]="level.viewValue">
-                  {{level.viewValue}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>      
+            <mat-select #codeLevelCtrl (selectionChange)="codeLevel = codeLevelCtrl.value; change()" placeholder="Choose level">
+              <mat-option *ngFor="let level of levels" [value]="level.viewValue">
+                {{level.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>      
           <mat-action-row>
             <button mat-button color="warn" (click)="prevStep()">Previous</button>
             <button mat-button color="accent" (click)="nextStep()">End</button>

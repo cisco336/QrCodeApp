@@ -6,18 +6,59 @@
     button {
         margin: 10px 0px;
     }
-    #qrTag {
-        position: relative;
-        margin: 0 auto;
-        &.tag-1 {
-            padding: 2rem;
-            border-radius: 6px;
-            background: black;
+    #qrTagWrapper, #qrRender {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #qrRender {
+        flex-direction: column;
+        &.type-1 {
+            padding: 0 1rem 1rem 1rem;
         }
-        &.tag-2 {
-            padding: 2rem;
-            border-radius: 6px;
-            background: greenyellow;
+        &.type-2 {
+            flex-direction: column-reverse;
+            padding: 1rem 1rem 0 1rem;
+        }
+        #triangle {
+            &.triangle-1, &.triangle-2 {
+                width: 0px;
+                height: 0px;
+                border-right: 1rem solid transparent;
+                border-left: 1rem solid transparent;
+            }
+            &.triangle-1 {
+                border-top: 1rem solid transparent;
+                border-bottom: 1rem solid black;
+            }
+            &.triangle-2 {
+                border-top: 1rem solid black;
+                border-bottom: 1rem solid transparent;
+            }
+        }
+        #qrTag {
+            position: relative;
+            // margin: 0 auto;
+            &.tag-1 {
+                padding: 1rem 2rem 2rem 2rem;
+                border-radius: 6px !important;
+                .scanme-1 {
+                    display: block;
+                }
+            }
+            &.tag-2 {
+                padding: 2rem 2rem 1rem 2rem;
+                border-radius: 6px;
+                .scanme-2 {
+                    display: block;
+                }
+            }
+            .scanme-1, .scanme-2 {
+                display: none
+            }
+            #qr-wrapper {
+                display: block;
+            }
         }
     }
     .qrbuttons {

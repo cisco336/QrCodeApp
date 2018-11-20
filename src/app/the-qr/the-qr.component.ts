@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { animamtions } from '../animations/animations';
+import domtoimage from 'dom-to-image';
 
 @Component({
   selector: 'app-the-qr',
@@ -18,6 +19,33 @@ export class TheQrComponent implements OnInit {
     return {
       'background': this.qrConfig[3],
       'width.px': this.qrConfig[0] + 32
+    };
+  };
+  qrTtriangle = function() {
+    if (this.tag1) {
+      return {
+        'borderBottomColor': this.qrConfig[2]
+      };
+    } else if (this.tag2) {
+      return {
+        'borderTopColor': this.qrConfig[2]
+      };
+    } else {
+      return {
+        'display': 'none'
+      };
+    }
+  };
+  qrTag = function() {
+    return {
+      'width.px': this.qrConfig[0] + 64,
+      'background': this.qrConfig[2]
+    };
+  };
+  scanMe = function() {
+    return {
+      'color': this.qrConfig[3],
+      'margin': 10 + 'px'
     };
   };
   constructor(private _dataService: DataService) {}
@@ -67,6 +95,39 @@ export class TheQrComponent implements OnInit {
         this.tag2 = false;
         this.notag = true;
         break;
+    }
+  }
+  qrGenerate() {
+    let theQrImg;
+    if (this.tag1 || this.tag2) {
+      theQrImg = document.getElementById('qrRender');
+    } else {
+      theQrImg = document.getElementById('qr-wrapper');
+    }
+    this.qrDownload(theQrImg);
+  }
+  qrDownload(theQrImg) {
+    function filter (node) {
+      return (node.tagName !== 'i');
+    }
+    const theLink = document.createElement('a');
+    if (this.qrConfig[4]) {
+      domtoimage.toSvg(theQrImg, { filter: filter })
+        .then(function (dataUrl) {
+          theLink.download = 'qrApp.svg';
+          theLink.href = dataUrl;
+          theLink.click();
+        });
+    } else {
+      domtoimage.toPng(theQrImg)
+        .then(function (dataUrl) {
+          theLink.download = 'qrApp.png';
+          theLink.href = dataUrl;
+          theLink.click();
+        })
+        .catch(function (error) {
+          console.error('Ooops...: ' + '\n' + error);
+        });
     }
   }
 }

@@ -1,4 +1,9 @@
-
-.space-fill {
-    flex: 1 1 auto;
+.mat-toolbar {
+    position: relative;
+    fa-icon.logo {
+        margin-right: 1rem;
+    }
+    .space-fill {
+        flex: 1 1 auto;
+    }
 }

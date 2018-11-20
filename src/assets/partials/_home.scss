@@ -34,6 +34,11 @@
     }
     .mat-tab-labels {
         justify-content: center;
+        .mat-tab-label-content {
+            fa-icon {
+                margin-right: 10px;
+            }
+        }
     }
     .mat-tab-body-content {
         padding: 16px;

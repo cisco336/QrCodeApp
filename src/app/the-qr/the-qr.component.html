@@ -2,20 +2,35 @@
   <mat-card>
     <div *ngIf="qrData != '';then data2 else nodata2"></div>
     <ng-template #data2 >
-        <div id="qrTag" [ngClass]="{
-          'tag-1': tag1,
-          'tag-2': tag2
-        }" [ngStyle]="{'width.px': qrConfig[0] + 64}">
-            <div @grow class="qr-wrapper" [ngStyle]="qrDivWrapper()">
+      <div id="qrTagWrapper">
+        <div id="qrRender" [ngClass]="{
+          'type-1': tag1,
+          'type-2': tag2
+        }">
+          <div id="triangle" [ngClass]="{
+            'triangle-1': tag1,
+            'triangle-2': tag2
+          }" [ngStyle]="qrTtriangle()"></div>
+          <div id="qrTag" [ngClass]="{
+            'tag-1': tag1,
+            'tag-2': tag2
+          }" [ngStyle]="qrTag()">
+            <span class="scanme-1" [ngStyle]="scanMe()">Scan Me...</span>
+            <div id="qr-wrapper" @grow class="qr-wrapper" [ngStyle]="qrDivWrapper()">
                 <qrcode @grow [size]="+qrConfig[0]" [level]="qrConfig[1]" [colordark]="qrConfig[2]" [colorlight]="qrConfig[3]" [usesvg]="qrConfig[4]" [qrdata]="qrData" [hidetitle]="true" ></qrcode>
             </div>
+            <span class="scanme-2" [ngStyle]="scanMe()">Scan Me...</span>
+          </div>
         </div>
+      </div>
         <div class="qrbuttons">
           <button mat-stroked-button color="accent" (click)="toggleClasses(1)">Tag 1</button>
           <button mat-stroked-button color="accent" (click)="toggleClasses(2)">Tag 2</button>
-          <button mat-stroked-button color="accent" (click)="toggleClasses(3)">Tag 3</button>
+          <button mat-stroked-button color="accent" (click)="toggleClasses(3)">No tag</button>
           <button mat-raised-button (click)="clearData()" color="primary">Clear Qr</button>
         </div>
+        <mat-divider></mat-divider>  
+        <button mat-raised-button (click)="qrGenerate()" color="warn">Download</button>
     </ng-template>
     <ng-template #nodata2 class="nodata"> 
       No data...

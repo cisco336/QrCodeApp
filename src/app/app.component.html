@@ -1,5 +1,5 @@
-<div class="app-wrapper">
-    <app-nav></app-nav>
+<div class="app-wrapper" [ngClass]="lightTheme ? 'light-theme':''">
+    <app-nav (themeEvent)="changeTheme($event)"></app-nav>
     <app-home class="flex-content"></app-home>
 </div>
 <app-footer></app-footer>
