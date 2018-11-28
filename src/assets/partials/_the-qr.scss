@@ -1,18 +1,82 @@
 .the-qr {
-    padding: 16px;
+    @include desktop {
+        padding: 0 16px 16px 16px;
+    }
+    padding: 0px;
     button {
         margin: 10px 0px;
     }
+    #qrTagWrapper, #qrRender {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #qrRender {
+        flex-direction: column;
+        &.type-1 {
+            padding: 0 1rem 1rem 1rem;
+        }
+        &.type-2 {
+            flex-direction: column-reverse;
+            padding: 1rem 1rem 0 1rem;
+        }
+        #triangle {
+            &.triangle-1, &.triangle-2 {
+                width: 0px;
+                height: 0px;
+                border-right: 1rem solid transparent;
+                border-left: 1rem solid transparent;
+            }
+            &.triangle-1 {
+                border-top: 1rem solid transparent;
+                border-bottom: 1rem solid black;
+            }
+            &.triangle-2 {
+                border-top: 1rem solid black;
+                border-bottom: 1rem solid transparent;
+            }
+        }
+        #qrTag {
+            position: relative;
+            // margin: 0 auto;
+            &.tag-1 {
+                padding: 1rem 2rem 2rem 2rem;
+                border-radius: 6px !important;
+                .scanme-1 {
+                    display: block;
+                }
+            }
+            &.tag-2 {
+                padding: 2rem 2rem 1rem 2rem;
+                border-radius: 6px;
+                .scanme-2 {
+                    display: block;
+                }
+            }
+            .scanme-1, .scanme-2 {
+                display: none
+            }
+            #qr-wrapper {
+                display: block;
+            }
+        }
+    }
     .qrbuttons {
-        button {
-            margin: .5rem;
-            &:first-child { 
-                margin-left: 0px; 
-            }
-            &:last-child {
-                float: right;
-                margin-right: 0px;
-            }
+        padding-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        @include smartphone-port {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        @include medium-screens {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+        }
+        @include desktop {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
         }
     }
 }

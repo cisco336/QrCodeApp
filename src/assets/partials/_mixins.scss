@@ -1,0 +1,20 @@
+@mixin small-screens-only {
+    @media (min-width: #{$iphone678-width + 1px}) {
+        @content;
+    }
+}
+@mixin smartphone-port {
+    @media (min-width: #{$iphone678-width}) and (max-width: 512px) {
+        @content;
+    }
+}
+@mixin medium-screens {
+    @media (min-width: 513px) and (max-width: #{$desktop-width - 1px} ) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}

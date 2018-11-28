@@ -26,7 +26,6 @@ export class SmsQrComponent implements OnInit {
     this._dataService.currentConfig.subscribe(configStream => {
       this.qrConfig = configStream;
     });
-    console.log(this.qrConfig);
   }
   /**
    * Recieve tha data from the input field and send it to

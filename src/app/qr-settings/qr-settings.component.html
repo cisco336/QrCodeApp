@@ -1,21 +1,37 @@
 <mat-tab-group color="accent" dynamicHeight="true" mat-align-tabs="center">
   <mat-tab label="Url"> 
-    <ng-template matTabContent>
-      <app-url-qr></app-url-qr>
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="['fas', 'globe']"></fa-icon>
+      <span>Url</span>
     </ng-template>
+    <app-url-qr></app-url-qr>
   </mat-tab>
   <mat-tab label="VCard"> 
-    <ng-template matTabContent>
-      <app-vcard-qr></app-vcard-qr>
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="['fas', 'id-card']"></fa-icon>
+      <span>V-Card</span>
     </ng-template>
+    <app-vcard-qr></app-vcard-qr>
   </mat-tab>
   <mat-tab label="Text">
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="['fas', 'align-left']"></fa-icon>
+      <span>Text</span>
+    </ng-template>
     <app-text-qr></app-text-qr>
   </mat-tab>
   <mat-tab label="Email">
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+      <span>e-mail</span>
+    </ng-template>
     <app-email-qr></app-email-qr>
   </mat-tab>
   <mat-tab label="Sms">
+    <ng-template mat-tab-label>
+      <fa-icon [icon]="['fas', 'comments']"></fa-icon>
+      <span>SMS</span>
+    </ng-template>
     <app-sms-qr></app-sms-qr>
   </mat-tab>
 </mat-tab-group>

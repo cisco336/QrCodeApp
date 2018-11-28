@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'QrCodeApp';
+  lightTheme = false;
+  changeTheme($event) {
+    this.lightTheme = $event;
+  }
 }

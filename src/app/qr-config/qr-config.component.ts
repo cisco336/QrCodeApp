@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./qr-config.component.scss']
 })
 export class QrConfigComponent implements OnInit {
-  usesvg: boolean = false;
+  usesvg = false;
   qrConfig: any[];
   codeSize = '128';
   codeLevel = 'M';
@@ -30,7 +30,6 @@ export class QrConfigComponent implements OnInit {
     this._dataService.currentConfig.subscribe(configStream => {
       this.qrConfig = configStream;
     });
-    console.log(this.qrConfig);
   }
 
   change() {
@@ -39,7 +38,6 @@ export class QrConfigComponent implements OnInit {
     this.qrConfig[2] = this.codeColor;
     this.qrConfig[3] = this.backColor;
     this.qrConfig[4] = this.usesvg;
-    console.log(this.qrConfig);
     this._dataService.setQrConfig(this.qrConfig);
   }
 

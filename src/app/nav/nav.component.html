@@ -1,11 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="thin">QrCode</span>
+  <span class="thin"><fa-icon [icon]="['fas', 'qrcode']" class="logo"></fa-icon>QrCode</span>
   <span class="space-fill"></span>
-  <mat-menu #appMenu="matMenu">
-    <button mat-menu-item>Contact</button>
-    <button mat-menu-item>Help</button>
-  </mat-menu>
-  <button mat-icon-button [matMenuTriggerFor]="appMenu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+  <mat-slide-toggle (change)="lightTheme = !lightTheme; themeChange()">Theme</mat-slide-toggle>
 </mat-toolbar>
